@@ -28,7 +28,7 @@ const Message = () => (
         <p className="mt-[24px] font-extralight sm:text-[18px] text-[14px] sm:leading-[45.6px] leading-[39.6px] text-gray-300">
           Dear Members and Supporters,
           <br />
-          Welcome to ISTE HIT Chapter! We're dedicated to innovation and
+          Welcome to ISTE HIT Chapter! We are dedicated to innovation and
           learning in tech and education. Stay tuned for exciting events and
           opportunities. Join us in shaping the future of education.
         </p>

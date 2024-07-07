@@ -21,7 +21,7 @@ export default function HeroSection() {
               ISTE Chapter HIT- Join the Revolution
             </h1>
             <p className="font-lemon mt-4 text-lg text-[#FFF8E3]">
-              Empowering Tomorrow's Innovators: ISTE Chapter HIT – Where
+              Empowering Tomorrow Innovators: ISTE Chapter HIT – Where
               Technology Meets Heroism!
             </p>
           </div>
