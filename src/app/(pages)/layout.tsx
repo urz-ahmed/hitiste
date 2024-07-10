@@ -1,7 +1,6 @@
 "use client";
 import appwriteService from "@/appwrite/config";
 import Blog from "@/components/Blog";
-import Header from "@/components/Header";
 // import { AuthProvider } from "@/context/authContext";
 // import AuthProvider from "@/context/AuthContext";
 import { AuthProvider } from "@/context/AuthContext";

@@ -1,4 +1,4 @@
-import ProfileCard from "@/components/ProfileCard";
+// import ProfileCard from "@/components/ProfileCard";
 import Link from "next/link";
 import React from "react";
 
@@ -13,7 +13,7 @@ const ProfilePage = () => {
                 </Link>
                 <span className="text-3xl font-bold">My Account</span>
             </h1>
-            <ProfileCard />
+            {/* <ProfileCard /> */}
         </div>
     );
 }

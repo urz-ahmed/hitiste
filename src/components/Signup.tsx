@@ -78,7 +78,7 @@ const SignupForm = () => {
         </p>
         <form 
           onSubmit={form.handleSubmit(onSubmit)} 
-          className="flex flex-col gap-5 w-full mt-4"
+          className="flex flex-col gap-5 mt-4"
         >
           <FormField
             control={form.control}
@@ -98,7 +98,7 @@ const SignupForm = () => {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Membership ID</FormLabel>
                 <FormControl>
                   <Input type='text' className="shad-input" {...field} />
                 </FormControl>
@@ -141,7 +141,7 @@ const SignupForm = () => {
           </Button>
           <p className="text-small-regular text-light-2 text-center mt-2" >
             Already have an account? 
-            <Link href='/login' className='text-primary-500 text-small-semi-bold ml-1'>
+            <Link href='/login' className='text-light-3 text-small-semi-bold ml-1'>
               Sign in
             </Link>
           </p>

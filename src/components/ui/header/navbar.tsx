@@ -7,13 +7,14 @@ import { FaUserPlus } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseOutline } from "react-icons/io5";
 import { navVariants } from "@/utils/motion";
-// import useAuth from "@/context/useAuth";
+import { IoIosLogOut } from "react-icons/io";
+
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/useUserContext";
 import Link from "next/link";
 const Navbar: React.FC = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
-  const {isAuthenticated}=useUserContext();
+  const { isAuthenticated } = useUserContext();
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -92,14 +93,24 @@ const Navbar: React.FC = () => {
                 </div>
               </li>
             ))}
-            <div className="m-4 flex gap-2 md:ml-12 ">
-              <Link  href={isAuthenticated? "/logout" : "/login"} className="cursor-pointer text-white bg-purple-600 p-1 rounded-xl">
+            <div className="m-4 flex gap-1 md:ml-12 ">
+              {/* <Link  href={isAuthenticated? "/logout" : "/login"} className="cursor-pointer text-white bg-purple-600 p-1 rounded-xl">
                 {isAuthenticated ? (
                   "Logout"
                 ) : (
                   <FaUserPlus className="text-[#DCFFB7] text-2xl cursor-pointer" />
                 )}
-              </Link>
+              </Link> */}
+              {isAuthenticated ? (
+                <button onClick={()=>signOut()} className="text-rose-300 inline-flex hover:font-extrabold cursor-pointer"><IoIosLogOut className="text-xl"/>Logout</button>
+              ) : (
+                <Link
+                  href="/login"
+                  className="cursor-pointer inline-flex hover:font-extrabold text-[#DCFFB7]"
+                >
+                  <FaUserPlus className=" text-xl mr-1" />Login
+                </Link>
+              )}
             </div>
           </ul>
         </div>
