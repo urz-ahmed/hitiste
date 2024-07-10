@@ -1,6 +1,7 @@
 "use client"
-import useAuth from "@/context/useAuth"
+// import useAuth from "@/context/useAuth"
 import { useRouter } from "next/navigation"
+import { useUserContext } from "@/context/useUserContext"
 
 import React from "react"
 
@@ -11,9 +12,9 @@ const ProtectedLayout = ({
   }) => {
 
     const router = useRouter();
-    const { authStatus } = useAuth();
+    const { isAuthenticated } = useUserContext();
 
-    if (!authStatus) {
+    if (!isAuthenticated) {
         router.replace("/login");
         return <></>;
     }

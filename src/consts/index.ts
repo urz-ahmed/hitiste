@@ -19,7 +19,33 @@ export interface Team {
   title: string;
   description: string;
 }
-
+export const sidebarLinks = [
+  {
+    imgURL: "/assets/icons/home.svg",
+    route: "/social",
+    label: "Home",
+  },
+  {
+    imgURL: "/assets/icons/wallpaper.svg",
+    route: "/social/explore",
+    label: "Explore",
+  },
+  {
+    imgURL: "/assets/icons/people.svg",
+    route: "/social/members",
+    label: "Members",
+  },
+  {
+    imgURL: "/assets/icons/bookmark.svg",
+    route: "/social/saved",
+    label: "Saved",
+  },
+  {
+    imgURL: "/assets/icons/gallery-add.svg",
+    route: "/social/create",
+    label: "Create",
+  },
+];
 export const exploreTeams: Team[] = [
   {
     id: "technical",

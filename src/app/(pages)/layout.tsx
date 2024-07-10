@@ -3,20 +3,21 @@ import appwriteService from "@/appwrite/config";
 import Blog from "@/components/Blog";
 import Header from "@/components/Header";
 // import { AuthProvider } from "@/context/authContext";
-import AuthProvider from "@/context/AuthContext";
+// import AuthProvider from "@/context/AuthContext";
+import { AuthProvider } from "@/context/AuthContext";
 import React, { useEffect, useState } from "react";
 import Navbar from "@/components/ui/header/navbar";
 import Footer from "@/components/ui/footer/footer";
 import { Toaster } from "@/components/ui/toaster";
 import { QueryProvider } from "@/lib/react-query/QueryProvider";
 const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
-  // const [authStatus, setAuthStatus] = useState(false);
+  // const [authStatus, setIsAuthenticated] = useState(false);
   // const [loader, setLoader] = useState(true);
 
   // useEffect(() => {
   //   appwriteService
   //     .isLoggedIn()
-  //     .then(setAuthStatus)
+  //     .then(setIsAuthenticated)
   //     .finally(() => setLoader(false));
   // }, []);
 

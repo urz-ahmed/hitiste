@@ -449,11 +449,11 @@ body,
 
   /* Left sidebar */
   .leftsidebar {
-    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] bg-dark-2;
+    @apply hidden md:flex px-6 py-10 flex-col justify-between min-w-[270px] border-r border-r-gray-700 mr-4;
   }
 
   .leftsidebar-link {
-    @apply rounded-lg base-medium hover:bg-primary-500 transition;
+    @apply rounded-r-full base-medium bg-dark-2 hover:bg-dark-4 transition;
   }
 
   /* Post Card */

@@ -20,7 +20,7 @@ const menuItems = [
 ];
 
 export default function Header() {
-    const { authStatus } = useAuth();
+    const { authStatus } = useUserContext();
     return (
         <div className="relative w-full bg-white py-2">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">

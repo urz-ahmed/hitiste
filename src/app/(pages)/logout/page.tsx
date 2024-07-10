@@ -1,25 +1,25 @@
-"use client";
-import appwriteService from "@/appwrite/config";
-import useAuth from "@/context/useAuth";
-import { useRouter } from "next/navigation";
-import React, {useEffect} from "react";
+// "use client";
+// import appwriteService from "@/appwrite/config";
+// // import useAuth from "@/context/useAuth";
+// import { useRouter } from "next/navigation";
+// import React, {useEffect} from "react";
 
-const LogoutPage = () => {
-    const router = useRouter();
-    const {setAuthStatus} = useAuth();
+// const LogoutPage = () => {
+//     const router = useRouter();
+//     const {setIsAuthenticated} = useUserContext();
 
-    useEffect(() => {
-        appwriteService.logout()
-        .then(() => {
-            setAuthStatus(false);
-            router.replace("/");
-        })
-    }, []);
+//     useEffect(() => {
+//         appwriteService.logout()
+//         .then(() => {
+//             setIsAuthenticated(false);
+//             router.replace("/");
+//         })
+//     }, []);
 
-    return(
-        <></>
-    )
-}
+//     return(
+//         <></>
+//     )
+// }
 
 
-export default LogoutPage;
+// export default LogoutPage;
