@@ -18,7 +18,7 @@ const Footer: FC<FooterProps> = () => (
     variants={footerVariants}
     initial="hidden"
     whileInView="show"
-    className={`${styles.xPaddings} relative bottom-0 py-8`}
+    className={`${styles.xPaddings} relative bottom-0`}
   >
     <div />
     <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>

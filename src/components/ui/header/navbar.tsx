@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
       variants={navVariants}
       initial="hidden"
       whileInView="show"
-      className={`md:px-10" glassmorphism absolute z-50 flex w-full flex-wrap items-center justify-around gap-2 px-5 text-sm font-medium uppercase opacity-90 ${
+      className={`fixed md:px-10" glassmorphism z-50 flex w-full flex-wrap items-center justify-around gap-2 px-5 text-sm font-medium uppercase opacity-90 ${
         isNavOpen ? "rounded-b-lg" : "rounded-b-full"
       }`}
     >

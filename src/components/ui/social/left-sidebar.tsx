@@ -20,10 +20,10 @@ const LeftSidebar = () => {
   }, [isSuccess]);
 
   return (
-    <nav className="leftsidebar">
+    <nav className="leftsidebar fixed left-0">
       <div className="flex flex-col gap-11">
 
-        <Link href={`/profile/${user.id}`} className="flex gap-3 items-center">
+        <Link href={`/profile/${user.id}`} className="flex gap-3 items-center cursor-pointer hover:font-extrabold">
           <img
             src={user.imageUrl || "/assets/images/profile-placeholder.svg"}
             alt="profile"
@@ -43,7 +43,7 @@ const LeftSidebar = () => {
                 key={link.label}
                 className={
                   isActive
-                    ? "group leftsidebar-link"
+                    ? "group leftsidebar-link bg-dark-1"
                     : "group leftsidebar-link"
                 }
               >
@@ -51,7 +51,7 @@ const LeftSidebar = () => {
                   <img
                     src={link.imgURL}
                     alt={link.label}
-                    className={isActive ? "invert-0" : "group-hover:invert-white invert-white"}
+                    className="invert-white"
                   />
                   {link.label}
                 </Link>
@@ -62,10 +62,10 @@ const LeftSidebar = () => {
       </div>
       <Button
         variant="ghost"
-        className="my-2"
+        className="my-2 hover:bg-rose-300"
         onClick={() => signOut()}
       >
-        <img src="/assets/icons/logout.svg" alt="logout" />
+        <img src="/assets/icons/logout.svg" className="invert-white" alt="logout" />
         <p className="small-medium lg:base-medium">Logout</p>
       </Button>
     </nav>
