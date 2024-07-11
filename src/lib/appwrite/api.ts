@@ -98,6 +98,7 @@ export async function signOutAccount() {
     try {
         const session = await account.deleteSession("current");
 
+        window.location.reload();
         return session;
         
     } catch (error) {
