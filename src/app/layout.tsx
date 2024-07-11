@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { Metadata } from 'next'
 const inter = Inter({ subsets: ['latin'] })
-
+import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   title: "ISTE HIT",
   description: "Student Chapter HIT ISTE",
@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <Analytics />
         </body>
     </html>
   )
