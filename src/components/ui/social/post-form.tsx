@@ -13,7 +13,7 @@ import FileUploader from '@/components/shared/FileUploader';
 import { PostValidation } from "@/lib/validation";
 import { useUserContext } from "@/context/useUserContext";
 import { useToast } from '../use-toast';
-// import { useCreatePost, useUpdatePost } from "@/lib/react-query/queriesAndMutations";
+import { useCreatePost} from "@/lib/react-query/queriesAndMutations";
 
 
 
@@ -29,7 +29,7 @@ const PostForm = ( {  post, action }: PostFormProps ) => {
   const { toast } = useToast();
   const { user } = useUserContext();
 //   const { mutateAsync: updatePost, isPending: isLoadingUpdate } = useUpdatePost();
-//   const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
+  const { mutateAsync: createPost, isPending: isLoadingCreate } = useCreatePost();
   
     // 1. Define your form.
     const form = useForm<z.infer<typeof PostValidation>>({
@@ -59,18 +59,18 @@ const PostForm = ( {  post, action }: PostFormProps ) => {
     //     return navigate.push(`/posts/${post.$id}`);
     //   }
       
-    //   const newPost = await createPost({
-    //     ...values,
-    //     userId: user.id,
-    //   })
+      const newPost = await createPost({
+        ...values,
+        userId: user.id,
+      })
     
-    //   if(!newPost) {
-    //     toast({
-    //       title: 'Please try again',
-    //     })
-    //   }
+      if(!newPost) {
+        toast({
+          title: 'Please try again',
+        })
+      }
 
-    //   navigate.push('/social');  
+      navigate.push('/social');  
 
     }
 
@@ -161,7 +161,7 @@ const PostForm = ( {  post, action }: PostFormProps ) => {
         )}
         />
         <div className="flex gap-4 items-center justify-end">
-          <Button type="button" className="shad-button_dark_4">Cancel</Button>
+          <Button type="submit" className="shad-button_dark_4">Cancel</Button>
           {/* <Button type="submit"  className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>
             {isLoadingCreate || isLoadingUpdate && 'Loading...'}
             {action} Post
