@@ -1,7 +1,7 @@
 import { Models } from "appwrite";
 import Link from "next/link";
 
-// import { PostStats } from "@/components/shared";
+// import PostStats from "@/components/shared/PostStats";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/useUserContext";
 

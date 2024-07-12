@@ -10,7 +10,11 @@ import {
   getCurrentUser,
   signInAccount,
   signOutAccount,
-  getRecentPosts
+  getRecentPosts,
+  likePost,
+  savePost,
+  deleteSavedPost,
+  getUsers
   
 } from "../appwrite/api";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
@@ -53,12 +57,82 @@ export const useGetRecentPosts = () => {
   })
 }
 
+
+export const useLikePost = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ postId, likeArray }: {postId: string; likeArray: string[]}) => 
+      likePost(postId, likeArray), onSuccess: (data) => {
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_POST_BY_ID, data?.id]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_RECENT_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_CURRENT_USER]
+        })
+      }
+  })
+}
+
+export const useSavePost = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ postId, userId }: {postId: string; userId: string}) => 
+      savePost(postId, userId), 
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_RECENT_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_CURRENT_USER]
+        })
+      }
+  })
+}
+
+export const useDeleteSavedPost = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ( savedRecordId: string ) => deleteSavedPost(savedRecordId),
+      onSuccess: () => {
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_RECENT_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_POSTS]
+        })
+        queryClient.invalidateQueries({
+          queryKey: [QUERY_KEYS.GET_CURRENT_USER]
+        })
+      }
+  })
+}
+
 export const useGetCurrentUser = () => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_CURRENT_USER],
-    queryFn: getCurrentUser,
-  });
-};
+    queryFn: getCurrentUser
+  })
+}
+
+export const useGetUsers = (limit?: number) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_USERS, limit],
+    queryFn: () => getUsers(limit),
+    enabled: !!limit
+  })
+}
 
 
 

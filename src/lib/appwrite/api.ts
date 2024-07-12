@@ -601,61 +601,62 @@ export async function deleteFile(fileId: string) {
 // }
 
 // ============================== LIKE / UNLIKE POST
-// export async function likePost(postId: string, likesArray: string[]) {
-//   try {
-//     const updatedPost = await databases.updateDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.postCollectionId,
-//       postId,
-//       {
-//         likes: likesArray,
-//       }
-//     );
+export async function likePost(postId: string, likesArray: string[]) {
+  try {
+    const updatedPost = await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.postCollectionId,
+      postId,
+      {
+        likes: likesArray,
+      }
+    );
 
-//     if (!updatedPost) throw Error;
+    if (!updatedPost) throw Error;
 
-//     return updatedPost;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return updatedPost;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 
 // ============================== SAVE POST
-// export async function savePost(postId: string, userId: string) {
-//   try {
-//     const updatedPost = await databases.createDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.savesCollectionId,
-//       ID.unique(),
-//       {
-//         user: userId,
-//         post: postId,
-//       }
-//     );
+export async function savePost(postId: string, userId: string) {
+  try {
+    const updatedPost = await databases.createDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.savesCollectionId,
+      ID.unique(),
+      {
+        user: userId,
+        post: postId,
+      }
+    );
 
-//     if (!updatedPost) throw Error;
+    if (!updatedPost) throw Error;
 
-//     return updatedPost;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return updatedPost;
+  } catch (error) {
+    console.log(error);
+  }
+}
 // ============================== DELETE SAVED POST
-// export async function deleteSavedPost(savedRecordId: string) {
-//   try {
-//     const statusCode = await databases.deleteDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.savesCollectionId,
-//       savedRecordId
-//     );
+export async function deleteSavedPost(savedRecordId: string) {
+  try {
+    const statusCode = await databases.deleteDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.savesCollectionId,
+      savedRecordId
+    );
 
-//     if (!statusCode) throw Error;
+    if (!statusCode) throw Error;
 
-//     return { status: "Ok" };
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return { status: "Ok" };
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================== GET USER'S POST
 // export async function getUserPosts(userId?: string) {
@@ -698,27 +699,27 @@ export async function getRecentPosts() {
 // ============================================================
 
 // ============================== GET USERS
-// export async function getUsers(limit?: number) {
-//   const queries: string[] = [Query.orderDesc("$createdAt")];
+export async function getUsers(limit?: number) {
+  const queries: string[] = [Query.orderDesc("$createdAt")];
 
-//   if (limit) {
-//     queries.push(Query.limit(limit));
-//   }
+  if (limit) {
+    queries.push(Query.limit(limit));
+  }
 
-//   try {
-//     const users = await databases.listDocuments(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.userCollectionId,
-//       queries
-//     );
+  try {
+    const users = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      queries
+    );
 
-//     if (!users) throw Error;
+    if (!users) throw Error;
 
-//     return users;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================== GET USER BY ID
 // export async function getUserById(userId: string) {
