@@ -367,10 +367,10 @@ export async function createPost(post: INewPost) {
 
     // Get file url
     const fileUrl = getFilePreview(uploadedFile.$id);
-    // if (!fileUrl) {
-    //   await deleteFile(uploadedFile.$id);
-    //   throw Error;
-    // }
+    if (!fileUrl) {
+      await deleteFile(uploadedFile.$id);
+      throw Error;
+    }
 
     // Convert tags into array
     const tags = post.tags?.replace(/ /g, "").split(",") || [];
@@ -390,10 +390,10 @@ export async function createPost(post: INewPost) {
       }
     );
 
-    // if (!newPost) {
-    //   await deleteFile(uploadedFile.$id);
-    //   throw Error;
-    // }
+    if (!newPost) {
+      await deleteFile(uploadedFile.$id);
+      throw Error;
+    }
 
     return newPost;
   } catch (error) {
@@ -425,7 +425,7 @@ export function getFilePreview(fileId: string) {
       2000,
       2000,
       "top",
-      100
+      50
     );
 
     if (!fileUrl) throw Error;
@@ -437,15 +437,15 @@ export function getFilePreview(fileId: string) {
 }
 
 // ============================== DELETE FILE
-// export async function deleteFile(fileId: string) {
-//   try {
-//     await storage.deleteFile(appwriteConfig.storageId, fileId);
+export async function deleteFile(fileId: string) {
+  try {
+    await storage.deleteFile(appwriteConfig.storageId, fileId);
 
-//     return { status: "ok" };
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return { status: "ok" };
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================== GET POSTS
 // export async function searchPosts(searchTerm: string) {
@@ -677,21 +677,21 @@ export function getFilePreview(fileId: string) {
 // }
 
 // ============================== GET POPULAR POSTS (BY HIGHEST LIKE COUNT)
-// export async function getRecentPosts() {
-//   try {
-//     const posts = await databases.listDocuments(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.postCollectionId,
-//       [Query.orderDesc("$createdAt"), Query.limit(20)]
-//     );
+export async function getRecentPosts() {
+  try {
+    const posts = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.postCollectionId,
+      [Query.orderDesc("$createdAt"), Query.limit(20)]
+    );
 
-//     if (!posts) throw Error;
+    if (!posts) throw Error;
 
-//     return posts;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return posts;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================================================
 // USER

@@ -15,9 +15,14 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        'xs': '480px',
       },
     },
     extend: {
+      screens: {
+        'xs': '480px',
+      
+      },
       colors: {
         'primary-500': '#877EFF',
         'primary-600': '#5D5FEF',

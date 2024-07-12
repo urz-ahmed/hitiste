@@ -1,11 +1,20 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
-
+import { formatDistanceToNow, parseISO } from 'date-fns';
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
+export function dateFormat(timestamp: string): string {
+  // Parse the ISO 8601 string into a Date object
+  const date = parseISO(timestamp);
+
+  // Get the relative time string
+  const relativeTime = formatDistanceToNow(date, { addSuffix: true });
+
+  return relativeTime;
+}
 export function formatDateString(dateString: string) {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",

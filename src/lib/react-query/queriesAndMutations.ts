@@ -10,6 +10,7 @@ import {
   getCurrentUser,
   signInAccount,
   signOutAccount,
+  getRecentPosts
   
 } from "../appwrite/api";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
@@ -37,13 +38,20 @@ export const useCreatePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (post: INewPost) => createPost(post),
-    // onSuccess: () => {
-    //   queryClient.invalidateQueries({
-    //     queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
-    //   });
-    // },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
+      });
+    },
   });
 };
+
+export const useGetRecentPosts = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
+    queryFn: getRecentPosts,
+  })
+}
 
 export const useGetCurrentUser = () => {
   return useQuery({

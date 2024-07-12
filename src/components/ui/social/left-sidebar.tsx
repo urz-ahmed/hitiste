@@ -60,14 +60,14 @@ const LeftSidebar = () => {
           })}
         </ul>
       </div>
-      <Button
+      {/* <Button
         variant="ghost"
         className="my-2 hover:bg-rose-300"
         onClick={() => signOut()}
       >
         <img src="/assets/icons/logout.svg" className="invert-white" alt="logout" />
         <p className="small-medium lg:base-medium">Logout</p>
-      </Button>
+      </Button> */}
     </nav>
   );
 };
