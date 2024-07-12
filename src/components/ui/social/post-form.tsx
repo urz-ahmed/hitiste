@@ -147,7 +147,7 @@ const PostForm = ( {  post, action }: PostFormProps ) => {
         name="tags"
         render={({ field }) => (
             <FormItem>
-            <FormLabel className="shad-form_label">Add Tags ( separated by comma " , " ) </FormLabel>
+            <FormLabel className="shad-form_label">Add Tags ( separated by comma &quot;, &quot; ) </FormLabel>
             <FormControl>
                 <Input 
                   type='text' 
@@ -161,7 +161,7 @@ const PostForm = ( {  post, action }: PostFormProps ) => {
         )}
         />
         <div className="flex gap-4 items-center justify-end">
-          <Button type="submit" className="shad-button_dark_4">Cancel</Button>
+          <Button type="submit">Post</Button>
           {/* <Button type="submit"  className="shad-button_primary whitespace-nowrap" disabled={isLoadingCreate || isLoadingUpdate}>
             {isLoadingCreate || isLoadingUpdate && 'Loading...'}
             {action} Post
