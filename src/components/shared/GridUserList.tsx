@@ -19,7 +19,7 @@ const GridUserList = ({ allUsers, currentUser } : AllUserProps) => {
           
           return (
             <li key={user.$id} className=' w-44 h-44 flex flex-col justify-center items-center gap-3 p-5 border shadow rounded-xl border-dark-4'>
-                <Link aria-disabled href={`/profile/${user.$id}`} className="flex flex-col gap-3 items-center"> 
+                <Link aria-disabled href={`/social/profile/${user.$id}`} className="flex flex-col gap-3 items-center"> 
                     <img 
                         src={user.imageUrl || 'assets/images/profile-placeholder.svg'}
                         alt="profile"

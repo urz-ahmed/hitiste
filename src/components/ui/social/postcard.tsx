@@ -1,6 +1,7 @@
 // components/PostCard.tsx
 import { Models } from "appwrite";
 import Link from "next/link";
+import DOMPurify from 'dompurify';
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/useUserContext";
 import PostStats from "@/components/shared/PostStats";
@@ -14,11 +15,13 @@ const PostCard = ({ post }: PostCardProps) => {
 
   if (!post.creator) return null;
 
+  const sanitizedCaption = DOMPurify.sanitize(post.caption);
+
   return (
     <div className="post-card">
       <div className="flex-between">
         <div className="flex items-center gap-3">
-          <Link href={`/profile/${post.creator.$id}`}>
+          <Link href={`/social/profile/${post.creator.$id}`}>
             <img
               src={post.creator?.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="creator"
@@ -56,7 +59,7 @@ const PostCard = ({ post }: PostCardProps) => {
 
       <Link href={`/social/posts/${post.$id}`}>
         <div className="small-medium lg:base-medium py-5">
-          <p>{post.caption}</p>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedCaption }} />
           <ul className="flex gap-1 mt-2">
             {post.tags.map((tag: string, index: number) => (
               <li key={`${tag}${index}`} className="text-light-3 small-regular">

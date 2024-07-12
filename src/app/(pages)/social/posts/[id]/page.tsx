@@ -28,7 +28,7 @@ const PostDetails = () => {
           />
           <div className="post_details-info">
             <div className='flex-between w-full'>
-              <Link href={`/profile/${post?.creator.$id}`} className='flex items-center gap-3'>
+              <Link href={`/social/profile/${post?.creator.$id}`} className='flex items-center gap-3'>
                 <img 
                   src={post?.creator?.imageUrl || '/assets/icons/profile-placeholder.svg'}
                   alt={post?.creator.name || 'creator'}
