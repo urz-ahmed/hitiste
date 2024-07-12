@@ -15,7 +15,8 @@ import {
   savePost,
   deleteSavedPost,
   getUsers,
-  getPostById
+  getPostById,
+  getUserById
   
 } from "../appwrite/api";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
@@ -144,4 +145,10 @@ export const useGetPostById = (postId?: string) => {
 }
 
 
-
+export const useGetUserById = (userId: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_USER_BY_ID, userId],
+    queryFn: () => getUserById(userId),
+    
+  })
+}

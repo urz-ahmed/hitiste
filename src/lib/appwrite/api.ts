@@ -722,22 +722,22 @@ export async function getUsers(limit?: number) {
 }
 
 // ============================== GET USER BY ID
-// export async function getUserById(userId: string) {
-//   try {
-//     const user = await databases.getDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.userCollectionId,
-//       userId
-//     );
+export async function getUserById(userId: string) {
+  try {
+    const user = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.userCollectionId,
+      userId
+    );
 
-//     if (!user) throw Error;
+    if (!user) throw Error;
 
-//     return user;
+    return user;
     
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================== UPDATE USER
 // export async function updateUser(user: IUpdateUser) {
