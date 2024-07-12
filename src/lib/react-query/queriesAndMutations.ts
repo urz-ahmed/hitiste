@@ -14,7 +14,8 @@ import {
   likePost,
   savePost,
   deleteSavedPost,
-  getUsers
+  getUsers,
+  getPostById
   
 } from "../appwrite/api";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
@@ -131,6 +132,14 @@ export const useGetUsers = (limit?: number) => {
     queryKey: [QUERY_KEYS.GET_USERS, limit],
     queryFn: () => getUsers(limit),
     enabled: !!limit
+  })
+}
+
+export const useGetPostById = (postId?: string) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_POST_BY_ID, postId],
+    queryFn: () => getPostById(postId),
+    enabled: !!postId
   })
 }
 

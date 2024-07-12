@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import { useDeleteSavedPost, useGetCurrentUser, useLikePost, useSavePost } from "@/lib/react-query/queriesAndMutations";
 import { checkIsLiked } from "@/lib/utils";

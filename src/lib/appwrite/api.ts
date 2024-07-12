@@ -487,23 +487,23 @@ export async function deleteFile(fileId: string) {
 // }
 
 // ============================== GET POST BY ID
-// export async function getPostById(postId?: string) {
-//   if (!postId) throw Error;
+export async function getPostById(postId?: string) {
+  if (!postId) throw Error;
 
-//   try {
-//     const post = await databases.getDocument(
-//       appwriteConfig.databaseId,
-//       appwriteConfig.postCollectionId,
-//       postId
-//     );
+  try {
+    const post = await databases.getDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.postCollectionId,
+      postId
+    );
 
-//     if (!post) throw Error;
+    if (!post) throw Error;
 
-//     return post;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return post;
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 // ============================== UPDATE POST
 // export async function updatePost(post: IUpdatePost) {

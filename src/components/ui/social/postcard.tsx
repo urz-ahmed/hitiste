@@ -1,9 +1,9 @@
+// components/PostCard.tsx
 import { Models } from "appwrite";
 import Link from "next/link";
-
-// import PostStats from "@/components/shared/PostStats";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/useUserContext";
+import PostStats from "@/components/shared/PostStats";
 
 type PostCardProps = {
   post: Models.Document;
@@ -12,7 +12,7 @@ type PostCardProps = {
 const PostCard = ({ post }: PostCardProps) => {
   const { user } = useUserContext();
 
-  if (!post.creator) return;
+  if (!post.creator) return null;
 
   return (
     <div className="post-card">
@@ -20,10 +20,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <div className="flex items-center gap-3">
           <Link href={`/profile/${post.creator.$id}`}>
             <img
-              src={
-                post.creator?.imageUrl ||
-                "/assets/icons/profile-placeholder.svg"
-              }
+              src={post.creator?.imageUrl || "/assets/icons/profile-placeholder.svg"}
               alt="creator"
               className="w-12 lg:h-12 rounded-full"
             />
@@ -46,7 +43,7 @@ const PostCard = ({ post }: PostCardProps) => {
         </div>
 
         <Link
-          href={`/update-post/${post.$id}`}
+          href={`/social/update-post/${post.$id}`}
           className={`${user.id !== post.creator.$id && "hidden"}`}>
           <img
             src={"/assets/icons/edit.svg"}
@@ -57,11 +54,11 @@ const PostCard = ({ post }: PostCardProps) => {
         </Link>
       </div>
 
-      <Link href={`/posts/${post.$id}`}>
+      <Link href={`/social/posts/${post.$id}`}>
         <div className="small-medium lg:base-medium py-5">
           <p>{post.caption}</p>
           <ul className="flex gap-1 mt-2">
-            {post.tags.map((tag: string, index: string) => (
+            {post.tags.map((tag: string, index: number) => (
               <li key={`${tag}${index}`} className="text-light-3 small-regular">
                 #{tag}
               </li>
@@ -76,7 +73,7 @@ const PostCard = ({ post }: PostCardProps) => {
         />
       </Link>
 
-      {/* <PostStats post={post} userId={user.id} /> */}
+      <PostStats post={post} userId={user.id} />
     </div>
   );
 };
