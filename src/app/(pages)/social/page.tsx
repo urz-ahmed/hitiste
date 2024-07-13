@@ -23,7 +23,7 @@ const SocialFeed = (props: Props) => {
       {isPostLoading && !posts ? (
         <Loader />
       ) : (
-        <ul className="flex flex-col flex-1 gap-9 w-full">
+        <ul className="flex flex-col h-20 flex-1 gap-9 w-full">
           {posts?.documents.map((post: Models.Document) => {
             return (
               <PostCard key={post.$id} post={post}/>

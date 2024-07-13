@@ -1,4 +1,3 @@
-// components/PostCard.tsx
 import { Models } from "appwrite";
 import Link from "next/link";
 import DOMPurify from 'dompurify';
@@ -59,13 +58,20 @@ const PostCard = ({ post }: PostCardProps) => {
 
       <Link href={`/social/posts/${post.$id}`}>
         <div className="small-medium lg:base-medium py-5">
-          <div dangerouslySetInnerHTML={{ __html: sanitizedCaption }} />
+        <div className="h-20 overflow-hidden shadow-slate-950 shadow-2xl relative">
+            <div
+              dangerouslySetInnerHTML={{ __html: sanitizedCaption }}
+              className="text-ellipsis"
+            />
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-b from-transparent to-gray-950"></div>
+          </div>
           <ul className="flex gap-1 mt-2">
             {post.tags.map((tag: string, index: number) => (
-              <li key={`${tag}${index}`} className="text-light-3 small-regular">
+              <li key={`${tag}${index}`} className="text-light-3 small-regular overflow-hidden">
                 #{tag}
               </li>
             ))}
+            <span className="ml-auto cursor-pointer">read more</span>
           </ul>
         </div>
 

@@ -7,15 +7,16 @@ import { useGetPostById } from '@/lib/react-query/queriesAndMutations';
 import { dateFormat } from '@/lib/utils';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-
+import DOMPurify from 'dompurify';
 const PostDetails = () => {
   const { id } = useParams();
   const { data: post, isPending } = useGetPostById(id || '');
   const { user } = useUserContext();
-
+  
   const handleDeletePost = () => {
     // Implement delete logic
   };
+  const sanitizedCaption = DOMPurify.sanitize(post?.caption);
 
   return (
     <div className='post_details-container'>
@@ -73,7 +74,7 @@ const PostDetails = () => {
             </div>
             <hr className='border w-full border-dark-4/80' />
             <div className="flex flex-col flex-1 w-full small-medium lg:base-regular">
-              <p>{post?.caption}</p>
+              <p dangerouslySetInnerHTML={{ __html: sanitizedCaption }}/>
               <ul>
                 {post?.tags.map((tag: string) => (
                   <li key={tag} className="text-light-3">#{tag}</li>
