@@ -10,7 +10,7 @@ const SocialMembers = () => {
   console.log(users);
   const pathname = usePathname();
   return (
-    <div className='explore-container gap-6 min-h-screen'>
+    <div className='explore-container gap-6 mb-8'>
       <div className="container">
         <h2 className="h3-bold md:h2-bold w-full">Our Members</h2>
       </div>

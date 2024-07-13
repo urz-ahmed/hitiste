@@ -7,7 +7,7 @@ type Props = {};
 const SocialCreate = (props: Props) => {
   const { isAuthenticated } = useUserContext();
   return (
-    <div className="w-full h-screen">
+    <div className="w-full min-h-screen">
       {isAuthenticated ? (
         <CreatePost />
       ) : (

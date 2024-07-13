@@ -2,7 +2,7 @@ import React from 'react'
 import PostForm from './post-form'
 const CreatePost = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col mb-8'>
       <div className=''>
         <div className='flex-start gap-3 justify-start w-full'>
           <img 

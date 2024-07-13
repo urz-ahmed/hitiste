@@ -31,7 +31,7 @@ function Tiptap({
     editorProps: {
       attributes: {
         class:
-          "shad-textarea",
+          "bg-dark-3 min-h-[200px]",
         style: "",
       },
     },
