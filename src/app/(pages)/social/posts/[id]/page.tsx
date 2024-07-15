@@ -19,7 +19,7 @@ const PostDetails = () => {
   const sanitizedCaption = DOMPurify.sanitize(post?.caption);
 
   return (
-    <div className='post_details-container'>
+    <div className='flex-1'>
       {isPending ? <Loader /> : (
         <div className='post_details-card'>
           <img 

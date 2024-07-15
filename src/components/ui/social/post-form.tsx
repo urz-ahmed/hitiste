@@ -102,6 +102,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
                 <FileUploader
                   fieldChange={field.onChange}
                   mediaUrl={post?.imageUrl}
+                  fileSize="1mb"
                 />
               </FormControl>
               <FormMessage className="shad-form_message" />

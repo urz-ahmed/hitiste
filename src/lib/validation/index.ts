@@ -40,6 +40,11 @@ export const ProfileValidation = z.object({
   bio: z.string(),
 });
 
+export const EditProfileValidation = z.object({
+  name: z.string().min(4, { message: 'Too short'}),
+  bio: z.string(),
+  file: z.custom<File[]>(),
+});
 // ============================================================
 // POST
 // ============================================================

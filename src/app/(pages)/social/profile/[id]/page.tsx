@@ -28,7 +28,7 @@ const Profile = () => {
     );
 
   return (
-    <div className="profile-container">
+    <div className="profile-container font-serif">
       <div className="profile-inner_container">
         <div className="flex xl:flex-row flex-col max-xl:items-center flex-1 gap-7">
           <img
@@ -38,10 +38,10 @@ const Profile = () => {
           />
           <div className="flex flex-col flex-1 justify-between md:mt-2">
             <div className="flex flex-col w-full">
-              <h1 className="text-center xl:text-left h3-bold md:h1-semibold w-full">
+              <h1 className="text-center xl:text-left h1-bold w-full">
                 {currentUser.name}
               </h1>
-              <p className="small-regular md:body-medium text-primary-500 text-center xl:text-left">
+              <p className="small-regular md:body-medium text-light-3 text-center xl:text-left">
                 @{currentUser.username}
               </p>
             </div>
@@ -51,8 +51,8 @@ const Profile = () => {
           <div className="flex justify-center gap-4">
             <div className={`${user.id !== currentUser.$id && 'hidden'}`}>
               <Link
-                href={`/update-profile/${currentUser.$id}`}
-                className={`h-12 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg ${
+                href={`/social/updateprofile/${currentUser.$id}`}
+                className={`h-8 bg-dark-4 px-5 text-light-1 flex-center gap-2 rounded-lg cursor-pointer hover:bg-dark-2 ${
                   user.id !== currentUser.$id && 'hidden'
                 }`}
               >
@@ -76,7 +76,7 @@ const Profile = () => {
 
       {currentUser.bio && (
         <div className="flex gap-10 : max-xl:justify-center items-center max-w-4xl w-full">
-          <h1 className="text-center xl:text-left h3-bold md:h1-semibold">Bio</h1>
+          <h1 className="text-center xl:text-left h3-bold md:h1-semibold"><span>bio |</span></h1>
           <p className="text-center xl:text-left overflow-hidden">{currentUser.bio}</p>
         </div>
       )}
