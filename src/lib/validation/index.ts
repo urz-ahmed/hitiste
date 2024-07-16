@@ -9,12 +9,16 @@ const emailDomainValidator = (email: string) => {
   const domain = email.split("@")[1];
   return popularEmailDomains.includes(domain);
 };
+const usernameValidator = z
+  .string()
+  .min(5, { message: "Membership ID must be at least 5 characters." })
+  .regex(/^[a-z]+$/, {
+    message: "Username must be lowercase letters only and without spaces.",
+  });
 
 export const SignupValidation = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  username: z
-    .string()
-    .min(5, { message: "Membership ID must at least 5 characters." }),
+  username: usernameValidator,
   email: z.string().email().refine(emailDomainValidator, {
     message: "Only these domains supported (gmail.com, yahoo.com, outlook.com)",
   }),
@@ -41,7 +45,7 @@ export const ProfileValidation = z.object({
 });
 
 export const EditProfileValidation = z.object({
-  name: z.string().min(4, { message: 'Too short'}),
+  name: z.string().min(4, { message: "Too short" }),
   bio: z.string(),
   file: z.custom<File[]>(),
 });
