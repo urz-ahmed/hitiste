@@ -42,7 +42,7 @@ export default function RecentEvent() {
         viewport={{ once: false, amount: 0.25 }}
         className={`2xl:max-w-[1280px] w-full mx-auto flex flex-col`}
       >
-        <TypingText title="௹ Recent Events" textStyles="text-center" />
+        <TypingText title="௹ Recent Events" textStyles="text-center sm:text-3xl text-[26px] text-[#D5D6DA]" />
         <div className="flex flex-wrap">
           {/* Left Div */}
           <div className="w-full sm:w-1/2 p-4">
