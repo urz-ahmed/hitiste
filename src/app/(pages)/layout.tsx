@@ -29,6 +29,7 @@ const ProtectedLayout = ({ children }: { children: React.ReactNode }) => {
         </main>
         <Toaster />
         <Footer />
+        <div className='h-16 md:hidden block'></div>
       </div>
     </AuthProvider>
     </QueryProvider>
