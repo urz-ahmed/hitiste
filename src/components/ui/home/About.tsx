@@ -16,7 +16,7 @@ export default function About() {
         viewport={{ once: false, amount: 0.25 }}
         className={`lg:w-[80%] w-[100%] mx-auto flex justify-center items-center flex-col`}
       >
-        <TypingText title="௹ About ISTE" textStyles="text-center" />
+        <TypingText title="௹ About ISTE" textStyles="text-center sm:text-3xl text-[28px] mb-2 sm:mb-0" />
 
         <motion.p
           variants={fadeIn("up", "tween", 0.2, 1)}

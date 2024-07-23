@@ -8,7 +8,7 @@ const inter = Righteous({
 const SocialLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
-    <div className={`${inter.className} w-full md:flex mt-24`}>
+    <div className={`${inter.className} w-full md:flex mt-24 min-h-screen`}>
         <LeftSidebar/>
         <main className="flex flex-1 mx-8 md:mx-24 md:ml-[300px]">
             {children}

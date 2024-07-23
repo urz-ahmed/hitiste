@@ -14,7 +14,7 @@ export function Guest() {
       viewport={{ once: false, amount: 0.25 }}
       className="h-[40rem] rounded-md flex flex-col antialiased  dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden"
     >
-      <TypingText title="௹ Annual Convention Sponsors" textStyles={""} />
+      <TypingText title="௹ Annual Convention Sponsors" textStyles={"w-screen sm:w-auto sm:mb-0 mb-1 text-center sm:text-3xl text-[5.3vw]"} />
       <InfiniteMovingCards
         items={testimonials}
         direction="right"

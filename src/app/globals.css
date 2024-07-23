@@ -414,7 +414,7 @@ body,
 
   /* Bottom bar */
   .bottom-bar {
-    @apply z-50 mt-4 flex-between w-full sticky border border-dark-3 border-b-transparent bottom-0 rounded-t-[20px] bg-dark-1 px-5 py-4 md:hidden;
+    @apply z-50 mt-4 flex-between w-full fixed border border-dark-3 border-b-transparent bottom-0 rounded-t-[20px] bg-dark-1 px-5 py-4 md:hidden;
   }
 
   /* File uploader */

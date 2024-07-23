@@ -20,7 +20,7 @@ function Explore() {
         viewport={{ once: false, amount: 0.25 }}
         className={`lg:w-[80%] w-[100%] mx-auto flex flex-col`}
       >
-        <TypingText title="௹ Explore the teams" textStyles="text-center" />
+        <TypingText title="௹ Explore the teams" textStyles="sm:w-auto text-center sm:text-3xl text-[6.5vw]" />
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {exploreTeams.map((teams, index) => (
             <ExploreCard

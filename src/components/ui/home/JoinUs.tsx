@@ -30,7 +30,7 @@ export default function JoinUs() {
           variants={fadeIn("left", "tween", 0.1, 1)}
           className="flex flex-1 flex-col justify-center items-center"
         >
-          <TypingText title="௹ Why you should join us?" textStyles={""} />
+          <TypingText title="௹ Why you should join us?" textStyles={"w-screen sm:w-auto text-center sm:text-3xl text-[5.7vw] text-[#D5D6DA]"} />
           <div className="mt-[31px] flex max-w-[390px] flex-col gap-2">
             {startingFeatures.map((feature: string, index: number) => (
               <JoinSteps
